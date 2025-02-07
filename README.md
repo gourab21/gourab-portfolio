@@ -15,7 +15,7 @@
 
   This website is fully responsive personal portfolio, <br />Responsive for all devices, built using HTML, CSS, and JavaScript.
 
-  <a href="https://gourab21.github.io/portfolio_gd/"><strong>➥ Live Demo</strong></a>
+  <a href="https://gourab21.github.io/gourab-portfolio/"><strong>➥ Live Demo</strong></a>
 
 </div>
 
