@@ -1,0 +1,266 @@
+/* Importing Google Font - Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* ========== Default Theme Variables ========== */
+body.light_theme {
+
+  --bg-primary: hsl(0, 0%, 90%);
+  --bg-secondary: hsl(0, 0%, 100%);
+  --color-primary: hsl(0, 0%, 12%);
+  --color-primary-2: hsla(0, 4%, 15%, 0.644);
+  --color-secondary: hsl(0, 0%, 37%);
+  --card-shadow: hsla(0, 0%, 0%, 0.3);
+  --input-bg: hsl(0, 0%, 93%);
+
+  --shadow-1: 10px 10px 40px var(--card-shadow);
+
+}
+
+
+/* Dark Theme Variables */
+body.dark_theme {
+  --bg-primary: hsl(0, 0%, 12%);
+  --bg-secondary: hsl(0, 0%, 19%);
+  --color-primary: hsl(0, 0%, 100%);
+  --color-primary-2: hsl(0, 0%, 100%);
+  --color-secondary: hsl(0, 4%, 82%);
+  --border-color: rgba(255, 255, 255, 0.2);
+  --card-shadow: hsla(0, 0%, 0%, 0.5);
+  --input-bg: hsl(0, 0%, 16%);
+  --button-bg: #fff;
+  --button-text: #030728;
+  --shadow-1: 10px 10px 40px var(--card-shadow);
+}
+
+/* ========== General Styles ========== */
+
+
+/* ========== Card Slider ========== */
+.slider-wrapper {
+  overflow: hidden;
+  max-width: 1200px;
+  margin: 0 70px 55px;
+}
+
+/* Card Styles */
+.card-list .card-item {
+  height: auto;
+  user-select: none;
+  padding: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  backdrop-filter: blur(30px);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-1);
+  transition: 0.1s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Dark Mode Card Styling */
+body.dark_theme .card-list .card-item {
+  background: linear-gradient(135deg,  #1f1c1a, #ffffff05);
+}
+
+body.dark_theme .card-list .card-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.2);
+}
+
+/* Light Mode Card Styling */
+body.light_theme .card-list .card-item {
+  background: linear-gradient(135deg,  #69676523, #24232300);
+}
+
+body.light_theme .card-list .card-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* User Image */
+.card-list .card-item .user-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  border: 4px solid var(--color-primary-2);
+  padding: 5px;
+  transition: 0.3s ease-in-out;
+}
+
+.card-list .card-item:hover .user-image {
+  transform: scale(1.10);
+}
+
+/* Text Styling */
+.card-list .card-item .user-name {
+  text-align: center;
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.card-list .card-item .user-profession {
+  text-align: center;
+  font-size: 1.1rem;
+  color: var(--color-secondary);
+  font-weight: 500;
+  margin: 10px 0 30px;
+}
+
+/* Button */
+.card-list .card-item .message-button {
+  font-size: 20px;
+  padding: 10px 25px;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  background: var(--button-bg);
+  color: var(--button-text);
+  border: 1px solid transparent;
+  transition: all 0.1s ease;
+}
+
+.card-list .card-item .message-button:hover {
+  background: transparent;
+  border: 1px solid var(--button-text);
+  color: var(--button-text);
+  transform: scale(1.05);
+}
+
+/* Pagination */
+.slider-wrapper .swiper-pagination-bullet {
+  background: var(--color-primary);
+  height: 13px;
+  width: 13px;
+  opacity: 0.5;
+}
+
+.slider-wrapper .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+/* ========== Dark Mode Toggle Button ========== */
+
+
+/* ========== Popup Modal ========== */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 350px;
+  background: var(--bg-secondary);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: var(--shadow-1);
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 1000;
+}
+
+/* When popup is active */
+.popup.active {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Dark overlay */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 999;
+}
+
+.popup-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.6);
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: white;
+}
+
+.close-btn:hover {
+  background: rgba(255, 0, 0, 0.8);
+}
+
+
+
+/* &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&& */
+/* Pop-up Overlay Styles */
+.ppopup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 9998;
+}
+
+/* Pop-up Styles */
+.ppopup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 80%;
+  text-align: center;
+  z-index: 9999;
+}
+
+.ppopup.active {
+  display: block;
+}
+
+.ppopup-overlay.active {
+  display: block;
+}
+
+.ppopup-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Image Styling in the Popup */
+.ppopup-images img {
+  width: 45%;
+  margin: 10px;
+  border-radius: 8px;
+}

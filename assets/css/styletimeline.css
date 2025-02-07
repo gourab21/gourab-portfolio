@@ -1,0 +1,95 @@
+/* Importing Google Font - Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* ========== Default Theme Variables ========== */
+body.light_theme {
+
+  --bg-primary: hsl(0, 0%, 90%);
+  --bg-secondary: hsl(0, 0%, 100%);
+  --color-primary: hsl(0, 0%, 12%);
+  --color-primary-2: hsla(0, 4%, 15%, 0.644);
+  --color-secondary: hsl(0, 0%, 37%);
+  --card-shadow: hsla(0, 0%, 0%, 0.3);
+  --input-bg: hsl(0, 0%, 93%);
+
+  --shadow-1: 10px 10px 40px var(--card-shadow);
+
+}
+
+
+/* Dark Theme Variables */
+body.dark_theme {
+  --bg-primary: hsl(0, 0%, 12%);
+  --bg-secondary: hsl(0, 0%, 19%);
+  --color-primary: hsl(0, 0%, 100%);
+  --color-primary-2: hsl(0, 0%, 100%);
+  --color-secondary: hsl(0, 4%, 82%);
+  --border-color: rgba(255, 255, 255, 0.2);
+  --card-shadow: hsla(0, 0%, 0%, 0.5);
+  --input-bg: hsl(0, 0%, 16%);
+  --button-bg: #fff;
+  --button-text: #030728;
+  --shadow-1: 10px 10px 40px var(--card-shadow);
+}
+/* ------------------------------------------------------------------ */
+.vertical-menu {
+  width: 100%; /* Full width for smaller screens */
+  max-width: 1400px; /* Set a max width for larger screens */
+  max-height: 350px; /* Scrollable when content exceeds this height */
+  overflow-y: auto;
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: var(--shadow-1);
+  margin: 0 auto; /* Center the menu */
+}
+
+.vertical-menu a {
+  color: var(--color-primary);
+  display: block;
+  padding: 16px 20px;
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-color);
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.vertical-menu a:hover {
+  background-color: var(--input-bg);
+  color: var(--color-secondary);
+}
+
+.vertical-menu a.active {
+  background-color: hsl(152, 61%, 38%); /* Vibrant green for active links */
+  color: white;
+}
+
+.vertical-menu::-webkit-scrollbar {
+  width: 10px;
+}
+
+.vertical-menu::-webkit-scrollbar-thumb {
+  background-color: var(--color-secondary);
+  border-radius: 8px;
+}
+
+.vertical-menu::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-primary-2);
+}
+
+.vertical-menu::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+  border-radius: 8px;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .vertical-menu {
+    width: 75%; /* 80% of the screen width on tablets and larger screens */
+  }
+}
+
+@media (min-width: 1024px) {
+  .vertical-menu {
+    width: 95%; /* 60% of the screen width on desktops */
+  }
+}
